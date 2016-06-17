@@ -2,9 +2,9 @@
   <ion-content>
     <h1 class="center">Videos</h1>
 
-    <div class="row" ng-repeat="itemtmp in peliculas|limitTo:(peliculas.length/2)+1">
+    <div class="row" ng-repeat="itemtmp in peliculas|limitTo:(peliculas.length/2)">
 
-      <div class="center col-50" ng-repeat="pelicula in peliculas.slice($index*2,($index*2+2))">
+      <div class="center col" ng-repeat="pelicula in peliculas.slice($index*2,($index*2+2))">
         <div class="list card">
           <div class="item item-image">
             <img ng-src="{{pelicula.imagen}}" ng-click="showVideo(pelicula.id)">
