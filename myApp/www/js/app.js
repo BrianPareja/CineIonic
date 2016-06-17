@@ -94,6 +94,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+
+    .state('app.perfil', {
+    url: '/perfil',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/perfil.html',
+        controller: 'VideosCtrl'
+      }
+    }
+  })
   ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');

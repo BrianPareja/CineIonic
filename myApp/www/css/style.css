@@ -24,6 +24,42 @@
 	vertical-align: middle;
 }
 
+
+.profile-item {
+  text-align: center;
+}
+
+.profile-picture {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 3px;
+  border-radius: 100%;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.profile-picture img {
+  width: 200px;
+  border-radius: 100%;
+}
+
+.profile-name {
+  padding-top: 20px;
+  font-size: x-large !important;
+  font-weight: bold !important;
+  text-transform: capitalize;
+}
+
+.slider-slide {
+  padding-top: 100px;
+  color: #000;
+  background-color: #fff;
+  text-align: center;
+}
 .scroll{height: 100%;}
 
 @media (max-width: 680px){
