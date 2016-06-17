@@ -59,7 +59,93 @@ angular.module('starter.controllers', [])
 .controller('PagPrincipalCtrl', function($scope, $stateParams) {
 })
 
-.controller('VideosCtrl', function($scope, $stateParams) {
+.controller('VideosCtrl', function($scope, $stateParams, $ionicModal, $sce) {
+  $scope.peliculas = [
+    { titulo: 'Lucy', url:'https://www.youtube.com/embed/MVt32qoyhi0', imagen:'img/peliculas/6lucy.jpe', id: 1},
+    { titulo: 'Focus', url:'https://www.youtube.com/embed/MxCRgtdAuBo', imagen:'img/peliculas/1Focus.jpe', id: 2},
+    { titulo: 'Piratas del Caribe', url:'https://www.youtube.com/embed/3LioCI-QTPE', imagen:'img/peliculas/2PiratasdelCaribe.jpe', id: 3},
+    { titulo: 'Pixels', url:'https://www.youtube.com/embed/XAHprLW48no', imagen:'img/peliculas/4pixeles.jpe', id: 4},
+    { titulo: 'La Mascara', url:'https://www.youtube.com/embed/DhP0P4q8jLk', imagen:'img/peliculas/10LaMascara.jpe', id: 5},
+    { titulo: 'Kick Ass', url:'https://www.youtube.com/embed/mpfiRpotHEg', imagen:'img/peliculas/11kick-ass.jpe', id: 6}
+  ];
+  $scope.pelicula_act = {};
+
+  $ionicModal.fromTemplateUrl('templates/modal.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modalVideo = modal;
+  });
+
+  $scope.showVideo = function (id) {
+    var pos = searchPelicula(id);
+    if (pos >= 0) {
+      $scope.pelicula_act = $scope.peliculas[pos];
+      $scope.modalVideo.show();
+    }
+  };
+
+  $scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl(src);
+  };
+
+  searchPelicula = function (id) {
+    for (var i = 0; i < $scope.peliculas.length; i++) {
+      if ($scope.peliculas[i].id==id) {
+        return i;
+      }
+    }
+    return -1;
+  };
+})
+
+.controller('VideoCtrl', function($scope, $stateParams, $ionicModal, $sce) {
+  var id = $stateParams['videoId'];
+
+  $scope.peliculas = [
+    { titulo: 'Lucy', url:'https://www.youtube.com/embed/MVt32qoyhi0', imagen:'img/peliculas/6lucy.jpe', id: 1},
+    { titulo: 'Focus', url:'https://www.youtube.com/embed/MxCRgtdAuBo', imagen:'img/peliculas/1Focus.jpe', id: 2},
+    { titulo: 'Piratas del Caribe', url:'https://www.youtube.com/embed/3LioCI-QTPE', imagen:'img/peliculas/2PiratasdelCaribe.jpe', id: 3},
+    { titulo: 'Pixels', url:'https://www.youtube.com/embed/XAHprLW48no', imagen:'img/peliculas/4pixeles.jpe', id: 4},
+    { titulo: 'La Mascara', url:'https://www.youtube.com/embed/DhP0P4q8jLk', imagen:'img/peliculas/10LaMascara.jpe', id: 5},
+    { titulo: 'Kick Ass', url:'https://www.youtube.com/embed/mpfiRpotHEg', imagen:'img/peliculas/11kick-ass.jpe', id: 6}
+  ];
+  $scope.pelicula_act = {};
+
+  $ionicModal.fromTemplateUrl('templates/modal.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modalVideo = modal;
+  });
+
+  $scope.showVideo = function (id) {
+    var pos = searchPelicula(id);
+    if (pos >= 0) {
+      $scope.pelicula_act = $scope.peliculas[pos];
+      $scope.modalVideo.show();
+    }
+  };
+
+  $scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl(src);
+  };
+
+  searchPelicula = function (id) {
+    for (var i = 0; i < $scope.peliculas.length; i++) {
+      if ($scope.peliculas[i].id==id) {
+        return i;
+      }
+    }
+    return -1;
+  };
+
+
+  /// buscamos la pelicula por su ID
+  var pos = searchPelicula(id);
+  $scope.pelicula = $scope.peliculas[0];
+  if (pos>=0) {
+    $scope.pelicula = $scope.peliculas[pos];
+  }
+
 })
 
 

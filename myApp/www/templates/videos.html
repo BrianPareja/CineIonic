@@ -1,59 +1,25 @@
 <ion-view view-title="Videos">
   <ion-content>
     <h1 class="center">Videos</h1>
-    <div class="row">
-	  <div class="center col-50">
-		<div class="list card">
-		  <div class="item item-image">
-		    <img src="img/peliculas/6lucy.jpe">
-		  </div>
-		  <a class="item item-icon-left assertive" href="#">
-		    <i class="icon ion-music-note"></i>
-		    Start listening
-		  </a>
-		</div>
-	  </div>
 
-	  <div class="center col-50">
-		<div class="list card">
+    <div class="row" ng-repeat="itemtmp in peliculas|limitTo:(peliculas.length/2)+1">
 
-		  <div class="item item-image">
-		    <img src="img/peliculas/6lucy.jpe">
-		  </div>
+      <div class="center col-50" ng-repeat="pelicula in peliculas.slice($index*2,($index*2+2))">
+        <div class="list card">
+          <div class="item item-image">
+            <img ng-src="{{pelicula.imagen}}" ng-click="showVideo(pelicula.id)">
+          </div>
+          <a class="item item-icon-right assertive" href="#/app/video/{{pelicula.id}}">
+            <i class="icon ion-ios-more"></i>
+             {{pelicula.titulo}}
+          </a>
+        </div>
+      </div>
+    </div>
 
-		  <a class="item item-icon-left assertive" href="#">
-		    <i class="icon ion-music-note"></i>
-		    Start listening
-		  </a>
+  </div>
 
-		</div>
-	  </div>
-	</div>
 
-	<div class="row">
-	  <div class="col-50">
-		<div class="list card">
-		  <div class="item item-image">
-		    <img src="img/peliculas/6lucy.jpe">
-		  </div>
-		  <a class="item item-icon-left assertive" href="#">
-		    <i class="icon ion-music-note"></i>
-		    Start listening
-		  </a>
-		</div>
-	  </div>
 
-	  <div class="col-50">
-		<div class="list card">
-		  <div class="item item-image">
-		    <img src="img/peliculas/6lucy.jpe">
-		  </div>
-		  <a class="item item-icon-left assertive" href="#">
-		    <i class="icon ion-music-note"></i>
-		    Start listening
-		  </a>
-		</div>
-	  </div>
-	</div>
   </ion-content>
 </ion-view>
