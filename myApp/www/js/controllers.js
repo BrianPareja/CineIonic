@@ -150,7 +150,7 @@ angular.module('starter.controllers', [])
 
 .controller('MapCtrl', function($scope, $ionicLoading, $compile) {
       function initialize() {
-        var myLatlng = new google.maps.LatLng(-16.404054478065266,-71.53901144999998);
+        var myLatlng = new google.maps.LatLng(-16.431141420153796,-71.51843354243773);
         
         var mapOptions = {
           center: myLatlng,

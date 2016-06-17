@@ -105,18 +105,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-      .state('app.reseña', {
-    url: '/reseña',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/reseña.html',
-        controller: 'VideosCtrl'
-      }
-    }
-  })
-  
-
-
       .state('app.mapa', {
     url: '/mapa',
     views: {
